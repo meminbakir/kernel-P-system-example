@@ -1,0 +1,16 @@
+type B { //compartment type
+	max { //execution strategy
+	  // Rewriting rules
+		gene -> gene, RNA .
+		RNA -> RNA, protein .
+		RNA -> {} .
+		protein -> {} .
+		act, gene -> act_gene .
+		act_gene -> act, gene .
+		act_gene -> act_gene, RNA .
+		rep, gene -> rep_gene .
+		rep_gene -> rep, gene .
+	}
+}
+b {gene, 10act, 10rep}(B).
+/* b is the compartment, {gene, add{10}act, add{10}rep} is its initial content, and B is its type, namely compartment type */
