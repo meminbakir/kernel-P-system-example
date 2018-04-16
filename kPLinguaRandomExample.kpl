@@ -1,0 +1,30 @@
+type C1 {
+	choice {
+		> 2b : 2b -> b, a(C2) .
+		b -> 2b.
+	}
+	arbitrary {
+		b -> {}.
+		a, b -> c.
+		c -> a, b.
+	}
+	max {
+		b -> {}.
+		a, b -> c.
+		c -> a, b.
+	}
+	a-> b.
+	=3a: 2c ->#.
+}
+type C2 {
+	choice {
+		a -> {2c}(C2) .
+		a -> {2c}(C1) .
+	}
+}
+
+m1 {2a, b} (C1).
+m2 {a} (C2).
+m3 {5a} (C2).
+m1-m2.
+m1-m3.
